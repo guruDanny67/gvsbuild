@@ -16,6 +16,12 @@ environment:
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       VS_VER: "15"
       PLATFORM: "x64"
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+      VS_VER: "14"
+      PLATFORM: "x86"
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+      VS_VER: "14"
+      PLATFORM: "x64"
 
 build_script:
   - "%PYTHON% build.py build --archives-download-dir=%DOWNLOAD_DIR% --platform=%PLATFORM% --vs-ver=%VS_VER% -k --enable-gi --py-wheel --py-egg --python-ver 3.7 enchant gtk gtk3-full pycairo pygobject lz4"
