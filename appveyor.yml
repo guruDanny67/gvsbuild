@@ -25,9 +25,9 @@ environment:
       PLATFORM: "x86"
 
 build_script:
-  - "%PYTHON% build.py build --archives-download-dir=%DOWNLOAD_DIR% --platform=%PLATFORM% --vs-ver=%VS_VER% -k --capture-out --enable-gi --py-wheel --py-egg --python-ver 3.7 --fast-build gtk enchant gtk3-full pycairo pygobject lz4 %EXTRA_PRJ%"
-  - "%PYTHON% build.py build --archives-download-dir=%DOWNLOAD_DIR% --platform=%PLATFORM% --vs-ver=%VS_VER% -k --capture-out --fast-build --clean-built --py-wheel --py-egg --python-ver 3.6 pycairo pygobject"
-  - "%PYTHON% build.py build --archives-download-dir=%DOWNLOAD_DIR% --platform=%PLATFORM% --vs-ver=%VS_VER% -k --capture-out --fast-build --clean-built --py-wheel --py-egg --python-ver 3.5 pycairo pygobject"
+  - "%PYTHON% build.py build --archives-download-dir=%DOWNLOAD_DIR% --platform=%PLATFORM% --vs-ver=%VS_VER% -k --capture-out --print-out --enable-gi --py-wheel --py-egg --python-ver 3.7 --fast-build gtk enchant gtk3-full pycairo pygobject lz4 %EXTRA_PRJ%"
+  - "%PYTHON% build.py build --archives-download-dir=%DOWNLOAD_DIR% --platform=%PLATFORM% --vs-ver=%VS_VER% -k --capture-out --print-out --fast-build --clean-built --py-wheel --py-egg --python-ver 3.6 pycairo pygobject"
+  - "%PYTHON% build.py build --archives-download-dir=%DOWNLOAD_DIR% --platform=%PLATFORM% --vs-ver=%VS_VER% -k --capture-out --print-out --fast-build --clean-built --py-wheel --py-egg --python-ver 3.5 pycairo pygobject"
   - set PATH=%PATH%;C:\msys64\usr\bin
   - IF "%PLATFORM%"=="x86" tar.exe -zcf gvsbuild-vs%VS_VER%-%PLATFORM%.tar.gz -C /c/gtk-build/gtk/Win32 release
   - IF "%PLATFORM%"=="x64" tar.exe -zcf gvsbuild-vs%VS_VER%-%PLATFORM%.tar.gz -C /c/gtk-build/gtk/x64 release
