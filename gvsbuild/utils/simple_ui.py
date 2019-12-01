@@ -25,6 +25,7 @@ import datetime
 import ctypes
 from contextlib import contextmanager
 
+
 # Original windows console title
 _script_org_title = None
 def script_title(new_title):
@@ -218,6 +219,25 @@ class Log(object):
             # already printed
             return
         print(msg)
+
+    def messages_dump(self, msgs, prt=False, err=None):
+        if err is not None:
+            if not err:
+                err = 'Attention! Error presents!'
+            self.message(err)
+            self.message('')
+            # with error we want to know what's happeninh
+            prt = True
+
+        lines = msgs.split('\n')
+        if self.fo:
+            # On the file, if active
+            for l in lines:
+                self.fo.write('    %s\n' % (l, ))
+        
+        if prt:
+            for l in lines:
+                print(l) 
 
     def log(self, msg):
         if self._verbose:
