@@ -31,10 +31,11 @@ build_script:
   - set PATH=%PATH%;C:\msys64\usr\bin
   - IF "%PLATFORM%"=="x86" tar.exe -zcf gvsbuild-vs%VS_VER%-%PLATFORM%.tar.gz -C /c/gtk-build/gtk/Win32 release
   - IF "%PLATFORM%"=="x64" tar.exe -zcf gvsbuild-vs%VS_VER%-%PLATFORM%.tar.gz -C /c/gtk-build/gtk/x64 release
+  - tar.exe -zcf gvsbuild-vs%VS_VER%-%PLATFORM%-log.tar.gz -C /c/gtk-build logs
 
 artifacts:
   - path: gvsbuild-vs%VS_VER%-%PLATFORM%.tar.gz
-  - path: ..\..\logs\gvsbuild-log.txt
+  - path: gvsbuild-vs%VS_VER%-%PLATFORM%-log.tar.gz
 
 cache:
   - '%DOWNLOAD_DIR%'
